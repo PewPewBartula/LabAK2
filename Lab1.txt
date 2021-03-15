@@ -1,0 +1,24 @@
+SYSEXIT32 = 1
+EXIT_SUCCES = 0
+SYSCALL32 = 0x80
+SYSWRITE = 4
+.global _start
+
+
+
+.text
+
+msg1: .ascii "Prosze napisac: "
+msg_len1 = . - msg1
+
+_start:
+mov $SYSWRITE, %eax
+mov $1, %ebx
+mov $msg1, %ecx
+mov $msg_len1, %edx
+int $SYSCALL32
+
+
+mov $SYSEXIT32, %eax
+mov $EXIT_SUCCES, %ebx
+int $SYSCALL32
