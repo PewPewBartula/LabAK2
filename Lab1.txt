@@ -1,0 +1,38 @@
+SYSEXIT32 = 1
+EXIT_SUCCES = 0
+SYSCALL32 = 0x80
+SYSWRITE = 4
+SYSREAD = 3
+BUFF_LEN = 100
+
+.global _start
+
+.section .bss
+buff: .space BUFF_LEN
+.lcomm my_buffer, 100
+buf_size = 100
+
+.data
+
+msg1: .ascii "Podaj zdanie: "
+msg_len1 = . - msg1
+
+.text
+
+_start:
+
+mov $SYSWRITE, %eax
+mov $1, %ebx
+mov $msg1, %ecx
+mov $msg_len1, %edx
+int $SYSCALL32
+
+mov $SYSREAD, %eax
+mov $1, %ebx
+mov $buff, %ecx
+mov $buf_size, %edx
+int $SYSCALL32
+
+mov $SYSEXIT32, %eax
+mov $EXIT_SUCCESS, %ebx
+int $SYSCALL32
