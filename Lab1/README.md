@@ -8,7 +8,7 @@ Rot13.pdf - sprawozdanie ze stworzonego programu
 
 makefile - plik z poleceniami używany do tworzenia i usuwania danych plików
 
-README.md - obecnie czytany plik wraz z infromacjami o obecnie przeglądanym pliku
+README.md - obecnie czytany plik wraz z infromacjami o obecnie przeglądanym folderze
 
 Jak uruchomić program z kodu źródłowego:
 
